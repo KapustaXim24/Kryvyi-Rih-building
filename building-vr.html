@@ -8,51 +8,41 @@
 <body>
     <a-scene background="color: #87CEEB">
 
+        <!-- === ЗАВАНТАЖЕННЯ РЕСУРСІВ === -->
+        <!-- Ми завантажуємо текстуру в <a-assets>, щоб уникнути проблем із завантаженням -->
+        <a-assets>
+            <img id="brick-texture" src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/bricks/brick_bumpy.jpg" crossorigin="anonymous">
+        </a-assets>
+
         <!-- Освітлення сцени -->
         <a-light type="ambient" color="#AAA"></a-light>
         <a-light type="directional" intensity="0.5" position="-1 1 2"></a-light>
 
-        <!-- Модель будівлі, згрупована для легкого керування -->
-        <a-entity id="city-council-building" position="0 0 -15" rotation="0 0 0">
-            
-            <!-- Основний довгий корпус (задня стіна) -->
-            <a-box position="0 1.5 -5" width="20" height="3" depth="1"
-                   src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/bricks/brick_bumpy.jpg">
+        <!-- Модель будівлі: простий довгий блок з дахом -->
+        <a-entity id="building" position="0 1 -10">
+            <!-- Основний корпус будівлі з текстурою -->
+            <a-box id="main-building" position="0 0 0" width="12" height="4" depth="3" 
+                   src="#brick-texture" repeat="4 2">
             </a-box>
-
-            <!-- Ліве крило (йде вперед) -->
-            <a-box position="-9.5 1.5 0" width="1" height="3" depth="10"
-                   src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/bricks/brick_bumpy.jpg">
-            </a-box>
-
-            <!-- Праве крило (йде вперед) -->
-            <a-box position="9.5 1.5 0" width="1" height="3" depth="10"
-                   src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/bricks/brick_bumpy.jpg">
-            </a-box>
-            
-            <!-- Перехід до круглої будівлі -->
-            <a-box position="5 1.5 5" width="9" height="3" depth="1"
-                   src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/bricks/brick_bumpy.jpg">
-            </a-box>
-
-            <!-- Кругла будівля (Центр надання адмін. послуг) -->
-            <a-cylinder position="5 1.5 10" radius="4" height="3"
-                        src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/bricks/brick_bumpy.jpg">
-            </a-cylinder>
-
+            <!-- Дах -->
+            <a-box id="roof" position="0 2.25 0" width="12.2" height="0.5" depth="3.2" color="#444444"></a-box>
         </a-entity>
 
-        <!-- Анімована камера, яка "від'їжджає" і трохи піднімається, щоб краще було видно план -->
-        <a-camera>
-            <a-animation attribute="position"
-                         from="0 5 8"
-                         to="0 15 15"
-                         dur="10000"
-                         easing="ease-in-out"
-                         direction="alternate"
-                         repeat="indefinite">
-            </a-animation>
-        </a-camera>
+        <!-- === КАМЕРА, ЯКА ВІД'ЇЖДЖАЄ === -->
+        <!-- Камера стартує перед будівлею і плавно від'їжджає назад -->
+        <a-entity id="camera-rig" position="0 1.6 0">
+            <a-camera>
+                <a-animation attribute="position"
+                             from="0 0 2"  <!-- Починаємо близько до центру -->
+                             to="0 0 10" <!-- Від'їжджаємо назад -->
+                             dur="8000"
+                             easing="ease-in-out"
+                             direction="alternate"
+                             repeat="indefinite">
+                </a-animation>
+            </a-camera>
+        </a-entity>
+
     </a-scene>
 </body>
 </html>
