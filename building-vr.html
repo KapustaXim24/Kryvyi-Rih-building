@@ -2,13 +2,13 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Криворізька міська рада (VR) - Local Texture Version</title>
+    <title>Криворізька міська рада (VR) - Final Drawing Version</title>
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
 </head>
 <body>
     <a-scene background="color: #ADF4FF">
 
-        <!-- 1. ЗАВАНТАЖЕННЯ ЛОКАЛЬНОЇ ТЕКСТУРИ -->
+        <!-- 1. ЛОКАЛЬНА ТЕКСТУРА -->
         <a-assets>
             <img id="local-brick-texture" src="./textures/brick.jpg">
         </a-assets>
@@ -17,27 +17,37 @@
         <a-light type="ambient" color="#CCC"></a-light>
         <a-light type="directional" intensity="0.8" position="-5 10 5"></a-light>
 
-        <!-- 2. МОДЕЛЬ БУДІВЛІ (з локальною текстурою) -->
+        <!-- 2. МОДЕЛЬ БУДІВЛІ (ТОЧНО ЗА ВАШИМ МАЛЮНКОМ) -->
         <a-entity id="city-council-complex" position="0 0 -15" rotation="0 0 0">
             
-            <a-box position="0 1.5 -10" width="24" height="3" depth="1" src="#local-brick-texture" repeat="12 2"></a-box>
-            <a-box position="-11.5 1.5 -5" width="1" height="3" depth="10" src="#local-brick-texture" repeat="5 2"></a-box>
-            <a-box position="-8.5 1.5 0" width="6" height="3" depth="1" src="#local-brick-texture" repeat="3 2"></a-box>
-            <a-box position="-6 1.5 5.5" width="1" height="3" depth="12" src="#local-brick-texture" repeat="6 2"></a-box>
-            <a-box position="-8.5 1.5 11" width="6" height="3" depth="1" src="#local-brick-texture" repeat="3 2"></a-box>
-            <a-box position="-11.5 1.5 13.5" width="1" height="3" depth="4" src="#local-brick-texture" repeat="2 2"></a-box>
-            <a-box position="-4.5 1.5 15" width="15" height="3" depth="1" src="#local-brick-texture" repeat="7.5 2"></a-box>
-            <a-box position="2.5 1.5 10.5" width="1" height="3" depth="8" src="#local-brick-texture" repeat="4 2"></a-box>
-            <a-box position="11.5 1.5 1" width="1" height="3" depth="18" src="#local-brick-texture" repeat="9 2"></a-box>
-            <a-cylinder id="cnap-building" position="11.5 1.5 12" radius="4" height="3" src="#local-brick-texture" repeat="8 2"></a-cylinder>
+            <!-- Довга вертикальна стіна (ліва) -->
+            <a-box position="-10 1.5 0" width="1" height="3" depth="20" src="#local-brick-texture" repeat="10 2"></a-box>
+
+            <!-- Верхня горизонтальна стіна -->
+            <a-box position="0 1.5 -9.5" width="20" height="3" depth="1" src="#local-brick-texture" repeat="10 2"></a-box>
+
+            <!-- Верхній правий спуск -->
+            <a-box position="9.5 1.5 -7" width="1" height="3" depth="5" src="#local-brick-texture" repeat="2.5 2"></a-box>
+
+            <!-- Центральний виступ -->
+            <a-box position="6.5 1.5 -5" width="5" height="3" depth="1" src="#local-brick-texture" repeat="2.5 2"></a-box>
+
+            <!-- Центральний спуск -->
+            <a-box position="4.5 1.5 -2.5" width="1" height="3" depth="5" src="#local-brick-texture" repeat="2.5 2"></a-box>
+
+            <!-- Перехід до циліндра -->
+            <a-box position="7 1.5 0" width="5" height="3" depth="1" src="#local-brick-texture" repeat="2.5 2"></a-box>
+
+            <!-- Кругла будівля (Циліндр) -->
+            <a-cylinder id="cnap-building" position="11.5 1.5 0" radius="2" height="3" src="#local-brick-texture" repeat="4 2"></a-cylinder>
 
         </a-entity>
 
         <!-- 3. КАМЕРА З ПРАВИЛЬНИМ РАКУРСОМ І АНІМАЦІЄЮ -->
-        <a-camera position="0 35 30" rotation="-60 0 0">
+        <a-camera position="0 25 20" rotation="-55 0 0">
             <a-animation attribute="position"
-                         from="0 35 30"
-                         to="0 45 40"
+                         from="0 25 20"
+                         to="0 35 30"
                          dur="12000"
                          easing="ease-in-out"
                          direction="alternate"
