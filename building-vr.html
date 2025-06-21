@@ -12,47 +12,42 @@
         <a-light type="ambient" color="#AAA"></a-light>
         <a-light type="directional" intensity="0.5" position="-1 1 2"></a-light>
 
-        <!-- Модель будівлі -->
-        <a-entity id="building" position="0 0 -15">
+        <!-- Модель будівлі, згрупована для легкого керування -->
+        <a-entity id="city-council-building" position="0 0 -15" rotation="0 0 0">
             
-            <!-- Основний корпус будівлі -->
-            <a-box id="main-building" position="0 2 0" width="20" height="4" depth="3"
+            <!-- Основний довгий корпус (задня стіна) -->
+            <a-box position="0 1.5 -5" width="20" height="3" depth="1"
                    src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/bricks/brick_bumpy.jpg">
             </a-box>
 
-            <!-- Створення вікон за допомогою циклів (потрібен JS) -->
-            <!-- Оскільки це складно, зробимо кілька вікон вручну для прикладу -->
-            
-            <!-- Ряд вікон на першому поверсі -->
-            <a-box class="window" position="-8.5 1 1.51" width="1" height="1" depth="0.1" color="black"></a-box>
-            <a-box class="window" position="-6.5 1 1.51" width="1" height="1" depth="0.1" color="black"></a-box>
-            <a-box class="window" position="-4.5 1 1.51" width="1" height="1" depth="0.1" color="black"></a-box>
-            <a-box class="window" position="-2.5 1 1.51" width="1" height="1" depth="0.1" color="black"></a-box>
-            <a-box class="window" position="-0.5 1 1.51" width="1" height="1" depth="0.1" color="black"></a-box>
-            <a-box class="window" position="1.5 1 1.51" width="1" height="1" depth="0.1" color="black"></a-box>
-            <a-box class="window" position="3.5 1 1.51" width="1" height="1" depth="0.1" color="black"></a-box>
-            <a-box class="window" position="5.5 1 1.51" width="1" height="1" depth="0.1" color="black"></a-box>
-            <a-box class="window" position="7.5 1 1.51" width="1" height="1" depth="0.1" color="black"></a-box>
+            <!-- Ліве крило (йде вперед) -->
+            <a-box position="-9.5 1.5 0" width="1" height="3" depth="10"
+                   src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/bricks/brick_bumpy.jpg">
+            </a-box>
 
-            <!-- Ряд вікон на другому поверсі -->
-            <a-box class="window" position="-8.5 3 1.51" width="1" height="1" depth="0.1" color="black"></a-box>
-            <a-box class="window" position="-6.5 3 1.51" width="1" height="1" depth="0.1" color="black"></a-box>
-            <a-box class="window" position="-4.5 3 1.51" width="1" height="1" depth="0.1" color="black"></a-box>
-            <a-box class="window" position="-2.5 3 1.51" width="1" height="1" depth="0.1" color="black"></a-box>
-            <a-box class="window" position="-0.5 3 1.51" width="1" height="1" depth="0.1" color="black"></a-box>
-            <a-box class="window" position="1.5 3 1.51" width="1" height="1" depth="0.1" color="black"></a-box>
-            <a-box class="window" position="3.5 3 1.51" width="1" height="1" depth="0.1" color="black"></a-box>
-            <a-box class="window" position="5.5 3 1.51" width="1" height="1" depth="0.1" color="black"></a-box>
-            <a-box class="window" position="7.5 3 1.51" width="1" height="1" depth="0.1" color="black"></a-box>
+            <!-- Праве крило (йде вперед) -->
+            <a-box position="9.5 1.5 0" width="1" height="3" depth="10"
+                   src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/bricks/brick_bumpy.jpg">
+            </a-box>
+            
+            <!-- Перехід до круглої будівлі -->
+            <a-box position="5 1.5 5" width="9" height="3" depth="1"
+                   src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/bricks/brick_bumpy.jpg">
+            </a-box>
+
+            <!-- Кругла будівля (Центр надання адмін. послуг) -->
+            <a-cylinder position="5 1.5 10" radius="4" height="3"
+                        src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/bricks/brick_bumpy.jpg">
+            </a-cylinder>
 
         </a-entity>
 
-        <!-- Анімована камера, яка "від'їжджає" -->
+        <!-- Анімована камера, яка "від'їжджає" і трохи піднімається, щоб краще було видно план -->
         <a-camera>
             <a-animation attribute="position"
-                         from="0 1.6 2"
-                         to="0 1.6 12"
-                         dur="8000"
+                         from="0 5 8"
+                         to="0 15 15"
+                         dur="10000"
                          easing="ease-in-out"
                          direction="alternate"
                          repeat="indefinite">
