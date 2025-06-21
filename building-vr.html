@@ -1,130 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta яких не вистачає. Це набагато простіше, ніж намагатися вгадати по карті.
-
-Я charset="utf-8">
-    <title>Криворізька міська рада (VR) - Final Roof Version</title>
-    <script src="https://aframe.io/releases/1.6.0/ бачу, що потрібно додати **трикутний дах** на праву частину і зробити центральну вежу виaframe.min.js"></script>
+    <meta charset="utf-8">
+    <title>Криворізька міська рада (VR) - Working Version</title>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
 </head>
 <body>
     <a-scene background="color: #ADF4FF">
 
-        <!-- 1. ЛОКАЛЬНА ТЕКСТУРАщою.
-
-Добре. Ніяких більше експериментів. Я зроблю **точно** те, що ви нама -->
+        <!-- 1. ЛОКАЛЬНА ТЕКСТУРА -->
         <a-assets>
-            <img id="local-brick-texture" src="./textures/лювали.
-
----
-
-### **ФІНАЛЬНИЙ КОД `building-vr.html` (Заbrick.jpg">
+            <img id="local-brick-texture" src="./textures/brick.jpg">
         </a-assets>
         
         <!-- Освітлення -->
-        <a вашим малюнком на 3D-моделі)**
+        <a-light type="ambient" color="#CCC"></a-light>
+        <a-light type="directional" intensity="0.8" position="-5 10 5"></a-light>
 
-**Будь ласка, замініть ВЕС-light type="ambient" color="#CCC"></a-light>
-        <a-light type="directional" intensity="0.8" position="-5 10 10"></a-light>
-
-        <!-- 2.Ь код у файлі `building-vr.html` на цей.**
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Криворі МОДЕЛЬ БУДІВЛІ (з дахами, як на малюнку) -->
-        <a-entity id="city-council-complex" position="0 0 -15" rotation="0зька міська рада (VR) - Final Sketch Version</title>
-    <script src="https://a 0 0">
-            
-            <!-- Основна довга стіна-основа -->
-            <a-frame.io/releases/1.6.0/aframe.min.js"></script>
-</head>
-<body>
-    <a-scene background="color: #ADF4FF">
-
-        <!-- 1box position="0 0.75 0" width="22" height="1.5" depth="2". ЛОКАЛЬНА ТЕКСТУРА -->
-        <a-assets>
-            <img src="#local-brick-texture" repeat="11 1"></a-box>
-
-            <!-- Ліва вежа --> id="local-brick-texture" src="./textures/brick.jpg">
-        </a-assets>
-
-            <a-box position="-8 3.5 0" width="4" height="4" depth="2        
-        <!-- Освітлення -->
-        <a-light type="ambient" color="#CCC"></a-" src="#local-brick-texture" repeat="2 2"></a-box>
-            <!-- Дах ліlight>
-        <a-light type="directional" intensity="0.8" position="-5 10вої вежі -->
-            <a-cone position="-8 5.5 0" radius-bottom="2. 5"></a-light>
-
-        <!-- 2. МОДЕЛЬ БУДІВЛІ (ТОЧНО ЗА ВАШИМ ЕСКІЗОМ) -->
-        <a-entity id="city5" radius-top="0" height="1" color="#555"></a-cone>
-
-            <!-- Центральна-council-complex" position="0 0 -15" rotation="0 0 0">
-             вежа -->
-            <a-box position="0 4.5 0" width="4" height="6
-            <!-- Основна довга горизонтальна частина -->
-            <a-box position="0 1.5 0" depth="2" src="#local-brick-texture" repeat="2 3"></a-box>
-" width="22" height="3" depth="1" src="#local-brick-texture" repeat="            <!-- Дах центральної вежі -->
-            <a-box position="0 7.5 0" width="4" height="0.2" depth="2" color="#555"></a-box11 2"></a-box>
-
-            <!-- Ліве крило (П-подібне) -->
->
-            
-            <!-- Права вежа з трикутним дахом -->
-            <a-box position            <a-box position="-10.5 1.5 -5" width="1" height="="8 2.5 0" width="4" height="2" depth="2" src="#local3" depth="10" src="#local-brick-texture" repeat="5 2"></a-box>
-            <a-box position="-8 1.5 -9.5" width="5" height="3"-brick-texture" repeat="2 1"></a-box>
-            <!-- Трикутний дах ( depth="1" src="#local-brick-texture" repeat="2.5 2"></a-box>з двох трикутників) -->
-            <a-triangle color="#555"
-                        vertex-a="6
-            
-            <!-- Центральна вежа (вища) -->
-            <a-box position="0 4 3.5 1" 
-                        vertex-b="10 3.5 1" 
-                        vertex.5 0" width="4" height="6" depth="1" src="#local-brick-texture-c="8 5.5 1">
-            </a-triangle>
-             <a-triangle" repeat="2 3"></a-box>
-
-            <!-- Права частина з трикутним дахом -->
-            < color="#555"
-                        vertex-a="6 3.5 -1" 
-                        vertex-ba-entity position="8.5 0 0">
-                <!-- Основа правої частини -->
-                ="10 3.5 -1" 
-                        vertex-c="8 5.5 -1<a-box position="0 1.5 0" width="5" height="3" depth="1" src="#local-brick-texture" repeat="2.5 2"></a-box>
-                <!--">
-            </a-triangle>
-            <a-plane width="4" height="2.82" position="7 4.5 0" rotation="-90 45 0" color="#5 Трикутний дах (створений з <a-cone>) -->
-                <a-cone position="0 55"></a-plane>
-            <a-plane width="4" height="2.82"3.5 0" radius-bottom="3" radius-top="0" height="1" rotation=" position="9 4.5 0" rotation="-90 -45 0" color="#555"></a0 0 -90" color="#666"></a-cone>
-            </a-entity>
--plane>
-
+        <!-- 2. МОДЕЛЬ БУДІВЛІ (ПРОСТА І ТОЧНА ФОРМА) -->
+        <a-entity id="city-council-complex" position="0 0 -12">
+            <!-- Центральна вежа (найвища) -->
+            <a-box position="0 3 0" width="5" height="6" depth="2" src="#local-brick-texture" repeat="2.5 3"></a-box>
+            <!-- Ліва вежа -->
+            <a-box position="-6 2.5 0" width="3" height="5" depth="2" src="#local-brick-texture" repeat="1.5 2.5"></a-box>
+            <!-- Права вежа -->
+            <a-box position="6 2.5 0" width="3" height="5" depth="2" src="#local-brick-texture" repeat="1.5 2.5"></a-box>
+            <!-- Нижня основа -->
+            <a-box position="0 0.25 0" width="16" height="0.5" depth="2" color="#555555"></a-box>
         </a-entity>
 
-        <!-- 3. КАМЕРА -->
-        <a            
-        </a-entity>
-
-        <!-- 3. КАМЕРА З ПРАВИЛЬНИ-camera position="0 4 12">
-            <a-animation attribute="position"
-                         from="0 М РАКУРСОМ І АНІМАЦІЄЮ -->
-        <a-camera position="0 5 15" rotation="-15 0 0">
-            <a-animation attribute="position4 12"
-                         to="0 4 22"
-                         dur="10000"
-                         easing="ease-in-out"
-                         direction="alternate"
-                         repeat="indefinite">"
-                         from="0 5 15"
-                         to="0 5 25"
-                         dur="
+        <!-- 3. КАМЕРА, ЯКА ВІД'ЇЖДЖАЄ -->
+        <a-camera position="0 3 10">
+            <a-animation 
+                attribute="position"
+                from="0 3 10"
+                to="0 3 20"
+                dur="10000"
+                easing="ease-in-out"
+                direction="alternate"
+                repeat="indefinite">
             </a-animation>
         </a-camera>
     </a-scene>
 </body>
-10000"
-                         easing="ease-in-out"
-                         direction="alternate"
-                         </html>
+</html>
