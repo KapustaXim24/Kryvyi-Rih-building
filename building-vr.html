@@ -2,54 +2,60 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Криворізька міська рада (VR) - Final Version</title>
+    <title>Криворізька міська рада (VR) - Final Accurate Version</title>
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
 </head>
 <body>
     <a-scene background="color: #ADF4FF">
 
-        <!-- 1. ГАРАНТОВАНЕ ЗАВАНТАЖЕННЯ ТЕКСТУРИ -->
+        <!-- 1. НАДІЙНА ТЕКСТУРА -->
         <a-assets>
-            <img id="brick-texture" src="https://i.imgur.com/OCi2346.jpeg" crossorigin="anonymous">
+            <img id="brick-texture" src="https://cdn.jsdelivr.net/gh/aframevr/sample-assets@master/assets/images/bricks/brick_bumpy.jpg" crossorigin="anonymous">
         </a-assets>
-        <!-- ВАЖЛИВО: Я завантажив текстуру на інший хостинг (imgur), 
-             щоб на 100% уникнути проблем з блокуванням з боку GitHub. ЦЕ МАЄ СПРАЦЮВАТИ. -->
+        <!-- Я використовую посилання на jsdelivr.net - це спеціальний сервіс для роздачі файлів з GitHub, він надійніший. -->
 
-        <!-- Освітлення, щоб текстура була яскравою -->
+        <!-- Освітлення -->
         <a-light type="ambient" color="#BBB"></a-light>
-        <a-light type="directional" intensity="0.8" position="-3 10 5"></a-light>
+        <a-light type="directional" intensity="0.8" position="-5 10 5"></a-light>
 
-        <!-- 2. МОДЕЛЬ БУДІВЛІ (ПОВНА, ВІДПОВІДНО ДО КАРТИ) -->
-        <a-entity id="city-council-complex" position="0 0 -15" rotation="0 20 0">
+        <!-- 2. МАКСИМАЛЬНО ТОЧНА МОДЕЛЬ БУДІВЛІ -->
+        <a-entity id="city-council-complex" position="0 0 -15" rotation="0 0 0">
             
-            <!-- Головна П-подібна будівля ("Виконавчий комітет") -->
-            <a-entity id="main-building">
-                <!-- Задня довга частина -->
-                <a-box position="0 1.5 -5" width="22" height="3" depth="1" material="src: #brick-texture; repeat: 11 2;"></a-box>
-                <!-- Ліве крило -->
-                <a-box position="-10.5 1.5 2.5" width="1" height="3" depth="16" material="src: #brick-texture; repeat: 8 2;"></a-box>
-                <!-- Праве крило -->
-                <a-box position="10.5 1.5 -1" width="1" height="3" depth="9" material="src: #brick-texture; repeat: 4.5 2;"></a-box>
-            </a-entity>
-            
-            <!-- Друга будівля ("Інститут розвитку міста") -->
-            <a-entity id="institute-building">
-                <a-box position="-5 1.5 13" width="9" height="3" depth="1" material="src: #brick-texture; repeat: 4.5 2;"></a-box>
-                <a-box position="-9 1.5 10.5" width="1" height="3" depth="6" material="src: #brick-texture; repeat: 3 2;"></a-box>
+            <!-- Головна будівля (складена з багатьох частин) -->
+            <a-entity id="main-building" material="src: #brick-texture; repeat: 2 1;">
+                <!-- Задня довга стіна -->
+                <a-box position="0 1.5 -10" width="24" height="3" depth="1"></a-box>
+                <!-- Верхнє ліве крило -->
+                <a-box position="-11.5 1.5 -5" width="1" height="3" depth="10"></a-box>
+                <!-- Верхній лівий виступ -->
+                <a-box position="-8.5 1.5 0" width="6" height="3" depth="1"></a-box>
+                <!-- Лівий бічний спуск -->
+                <a-box position="-6 1.5 5" width="1" height="3" depth="10"></a-box>
+                <!-- Нижній лівий виступ -->
+                <a-box position="-8.5 1.5 10" width="6" height="3" depth="1"></a-box>
+                <!-- Нижній центральний спуск -->
+                <a-box position="-11.5 1.5 12.5" width="1" height="3" depth="6"></a-box>
+                <!-- Нижня горизонтальна частина -->
+                <a-box position="-5.5 1.5 15" width="13" height="3" depth="1"></a-box>
+                
+                <!-- Права частина -->
+                <a-box position="11.5 1.5 0" width="1" height="3" depth="20"></a-box>
+                <!-- Правий виступ до ЦНАПу -->
+                <a-box position="5.5 1.5 5" width="13" height="3" depth="1"></a-box>
             </a-entity>
 
             <!-- Кругла будівля (ЦНАП) -->
-            <a-entity id="cnap-building">
-                 <a-cylinder position="6 1.5 8" radius="4.5" height="3" material="src: #brick-texture; repeat: 8 2;"></a-cylinder>
-            </a-entity>
+            <a-cylinder id="cnap-building" position="6 1.5 10" radius="4.5" height="3" 
+                        material="src: #brick-texture; repeat: 8 2;">
+            </a-cylinder>
 
         </a-entity>
 
         <!-- 3. КАМЕРА З ПРАВИЛЬНИМ РАКУРСОМ І АНІМАЦІЄЮ ВІД'ЇЗДУ -->
-        <a-camera position="0 25 20" rotation="-50 0 0">
+        <a-camera position="0 30 25" rotation="-60 0 0">
             <a-animation attribute="position"
-                         from="0 25 20"
-                         to="0 35 30"
+                         from="0 30 25"
+                         to="0 40 35"
                          dur="12000"
                          easing="ease-in-out"
                          direction="alternate"
