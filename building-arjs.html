@@ -2,25 +2,13 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Будівля міськради (AR.js) - Final Attempt</title>
-    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <title>Будівля міськради (AR.js) - Old A-Frame Version</title>
+    <!-- ВИКОРИСТОВУЄМО СТАРІШУ ВЕРСІЮ A-FRAME -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 </head>
-<body style="margin : 0px; overflow: hidden;">
-    
-    <!-- Сцена тепер простіша, параметри винесено в окремий тег -->
-    <a-scene embedded>
-
-        <!-- Налаштування AR.js винесено сюди -->
-        <arjs-nft
-            type="nft"
-            url="URL_ДО_ВАШОЇ_ПАПКИ_З_МАРКЕРОМ" <!-- ЗАРАЗ ЗАМІНИМО ЦЕ -->
-            smooth="true"
-            smoothCount="10"
-            smoothTolerance=".01"
-            smoothThreshold="5">
-        </arjs-nft>
-
+<body style="margin: 0px; overflow: hidden;">
+    <a-scene embedded arjs>
         <a-marker type="pattern" url="marker.patt">
             <a-entity 
                 id="city-council-complex" 
@@ -34,7 +22,6 @@
                 <a-sphere position="9 4 0" radius="2" color="#666" theta-start="0" theta-length="180"></a-sphere>
             </a-entity>
         </a-marker>
-        
         <a-entity camera></a-entity>
     </a-scene>
 </body>
