@@ -11,8 +11,8 @@
         <a-assets>
             <img id="local-brick-texture" src="./textures/brick.jpg">
         </a-assets>
-
-        <a-marker type="pattern" url="./markers/marker.patt">
+        <!-- ВИПРАВЛЕНО ШЛЯХ ДО МАРКЕРА -->
+        <a-marker type="pattern" url="/Kryvyi-Rih-building/markers/marker.patt">
             <a-entity id="city-council-complex" position="0 -1 0" scale="0.1 0.1 0.1" rotation="-90 0 0">
                 <a-box position="0 1 0" width="22" height="2" depth="0.2" src="#local-brick-texture" repeat="11 1"></a-box>
                 <a-box position="-9 3.5 0" width="4" height="3" depth="0.2" src="#local-brick-texture" repeat="2 1.5"></a-box>
@@ -21,7 +21,6 @@
                 <a-sphere position="9 4 0" radius="2" color="#666" theta-start="0" theta-length="180"></a-sphere>
             </a-entity>
         </a-marker>
-        
         <a-entity camera></a-entity>
     </a-scene>
 </body>
