@@ -9,14 +9,20 @@
 </head>
 <body style="margin: 0; overflow: hidden;">
     <a-scene mindar-image="imageTargetSrc: ./markers/targets.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+        
+        <a-assets>
+            <img id="local-brick-texture" src="./textures/brick.jpg">
+        </a-assets>
+        
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
         <a-entity mindar-image-target="targetIndex: 0">
-            <a-entity id="city-council-building" position="0 -0.5 0" scale="0.05 0.05 0.05">
-                <a-box position="0 1.5 -5" width="20" height="3" depth="1" src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/bricks/brick_bumpy.jpg"></a-box>
-                <a-box position="-9.5 1.5 0" width="1" height="3" depth="10" src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/bricks/brick_bumpy.jpg"></a-box>
-                <a-box position="9.5 1.5 0" width="1" height="3" depth="10" src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/bricks/brick_bumpy.jpg"></a-box>
-                <a-box position="5 1.5 5" width="9" height="3" depth="1" src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/bricks/brick_bumpy.jpg"></a-box>
-                <a-cylinder position="5 1.5 10" radius="4" height="3" src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/bricks/brick_bumpy.jpg"></a-cylinder>
+            <a-entity id="city-council-complex" position="0 -0.5 0" scale="0.1 0.1 0.1">
+                <a-box position="0 1 0" width="22" height="2" depth="0.2" src="#local-brick-texture" repeat="11 1"></a-box>
+                <a-box position="-9 3.5 0" width="4" height="3" depth="0.2" src="#local-brick-texture" repeat="2 1.5"></a-box>
+                <a-box position="0 4 0" width="4" height="6" depth="0.2" src="#local-brick-texture" repeat="2 3"></a-box>
+                <a-box position="9 2.5 0" width="4" height="3" depth="0.2" src="#local-brick-texture" repeat="2 1.5"></a-box>
+                <a-sphere position="9 4 0" radius="2" color="#666" theta-start="0" theta-length="180"></a-sphere>
             </a-entity>
         </a-entity>
     </a-scene>
