@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Криворізька міська рада (VR) - Final Sketch Version</title>
+    <title>Криворізька міська рада (VR) - Flat Sketch Version</title>
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
 </head>
 <body>
@@ -15,42 +15,36 @@
         
         <!-- Освітлення -->
         <a-light type="ambient" color="#CCC"></a-light>
-        <a-light type="directional" intensity="0.8" position="-5 10 10"></a-light>
+        <a-light type="directional" intensity="0.8" position="0 5 10"></a-light>
 
-        <!-- 2. МОДЕЛЬ БУДІВЛІ (ОБ'ЄМНА, ЗА ЕСКІЗОМ) -->
-        <a-entity id="city-council-complex" position="0 0 -15" rotation="0 20 0">
+        <!-- 2. МОДЕЛЬ БУДІВЛІ (ПЛОСКА, АЛЕ ТОЧНИЙ СИЛУЕТ) -->
+        <a-entity id="city-council-complex" position="0 0 -15">
             
-            <!-- Основна довга стіна-основа -->
-            <a-box position="0 1 0" width="22" height="2" depth="1" src="#local-brick-texture" repeat="11 1"></a-box>
+            <!-- Всі частини мають однакову глибину (depth="0.2"), щоб виглядати як одна стіна -->
+            
+            <!-- Нижня основа -->
+            <a-box position="0 1 0" width="22" height="2" depth="0.2" src="#local-brick-texture" repeat="11 1"></a-box>
 
-            <!-- Ліва П-подібна вежа -->
-            <a-box position="-9 3 0" width="4" height="3" depth="1" src="#local-brick-texture" repeat="2 1.5"></a-box>
-            <a-box position="-10.5 3 2" width="1" height="3" depth="4" src="#local-brick-texture" repeat="2 1.5"></a-box>
+            <!-- Ліва вежа (П-подібна) -->
+            <a-box position="-9 4 0" width="4" height="4" depth="0.2" src="#local-brick-texture" repeat="2 2"></a-box>
+            <a-box position="-9 3 0" width="1" height="2" depth="0.2" color="#ADF4FF"></a-box> <!-- Виріз -->
 
             <!-- Центральна вежа -->
-            <a-box position="0 4 0" width="4" height="5" depth="1" src="#local-brick-texture" repeat="2 2.5"></a-box>
-
-            <!-- Права вежа з трикутним дахом -->
-            <a-entity position="9 1 0">
-                <!-- Основа вежі -->
-                <a-box position="0 1 0" width="4" height="2" depth="3" src="#local-brick-texture" repeat="2 1"></a-box>
-                <!-- Дах (з двох трикутників та двох площин) -->
-                <a-triangle color="#666" vertex-a="-2 2 1.5" vertex-b="2 2 1.5" vertex-c="0 4 1.5"></a-triangle>
-                <a-triangle color="#666" vertex-a="-2 2 -1.5" vertex-b="2 2 -1.5" vertex-c="0 4 -1.5"></a-triangle>
-                <a-plane width="4" height="2.83" position="-1 3 -0.75" rotation="90 -45 0" color="#666"></a-plane>
-                <a-plane width="4" height="2.83" position="1 3 -0.75" rotation="90 45 0" color="#666"></a-plane>
-                 <!-- Маленькі підпори під дахом -->
-                <a-box position="-0.75 1.5 -1" width="0.5" height="1" depth="0.5" color="#555"></a-box>
-                <a-box position="0.75 1.5 -1" width="0.5" height="1" depth="0.5" color="#555"></a-box>
-            </a-entity>
+            <a-box position="0 5 0" width="4" height="6" depth="0.2" src="#local-brick-texture" repeat="2 3"></a-box>
             
+            <!-- Права вежа з трикутним дахом -->
+            <a-box position="9 2.5 0" width="4" height="3" depth="0.2" src="#local-brick-texture" repeat="2 1.5"></a-box>
+            <a-triangle color="#666" position="9 4 0.11"
+                        vertex-a="-2 0 0" vertex-b="2 0 0" vertex-c="0 2 0">
+            </a-triangle>
+
         </a-entity>
 
         <!-- 3. КАМЕРА -->
-        <a-camera position="0 4 15" rotation="-10 0 0">
+        <a-camera position="0 4 12">
             <a-animation attribute="position"
-                         from="0 4 15"
-                         to="0 4 25"
+                         from="0 4 12"
+                         to="0 4 22"
                          dur="10000"
                          easing="ease-in-out"
                          direction="alternate"
