@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>Будівля міськрадииии (AR.js) - Old A-Frame Version</title>
-    <!-- ВИКОРИСТОВУЄМО СТАРІШУ ВЕРСІЮ A-FRAME -->
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
-</head>
-<body style="margin: 0px; overflow: hidden;">
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <body style="margin : 0px; overflow: hidden;">
     <a-scene embedded arjs>
-        <a-marker type="pattern" url="marker.patt">
+      <a-marker preset="hiro">
+            <!-- ВАША МОДЕЛЬ (ми вставляємо її сюди) -->
             <a-entity 
                 id="city-council-complex" 
                 position="0 -1 0" 
@@ -21,8 +17,8 @@
                 <a-box position="9 2.5 0" width="4" height="3" depth="0.2" src="brick.jpg" repeat="2 1.5"></a-box>
                 <a-sphere position="9 4 0" radius="2" color="#666" theta-start="0" theta-length="180"></a-sphere>
             </a-entity>
-        </a-marker>
-        <a-entity camera></a-entity>
+      </a-marker>
+      <a-entity camera></a-entity>
     </a-scene>
-</body>
+  </body>
 </html>
