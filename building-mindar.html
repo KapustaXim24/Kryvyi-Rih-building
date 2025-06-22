@@ -8,14 +8,12 @@
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/dist/mindar-image-aframe.prod.js"></script>
 </head>
 <body style="margin: 0; overflow: hidden;">
-    <a-scene mindar-image="imageTargetSrc: ./markers/targets.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
-        
+    <!-- ВИПРАВЛЕНО ШЛЯХ ДО МАРКЕРА -->
+    <a-scene mindar-image="imageTargetSrc: /Kryvyi-Rih-building/markers/targets.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
         <a-assets>
             <img id="local-brick-texture" src="./textures/brick.jpg">
         </a-assets>
-        
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-
         <a-entity mindar-image-target="targetIndex: 0">
             <a-entity id="city-council-complex" position="0 -0.5 0" scale="0.1 0.1 0.1">
                 <a-box position="0 1 0" width="22" height="2" depth="0.2" src="#local-brick-texture" repeat="11 1"></a-box>
